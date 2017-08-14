@@ -19,8 +19,10 @@ else
   $thema = 'planetb';
 ?>
 <div id="container">
-<h1>Dein grünes Foto</h1>
-<p  class="verstecke">Schieße ein Handyfoto und der Text wird drüber gelegt.
+<div align="center"><img class="logo" src="images/logo.svg"></div>
+<h1>Mein Haustier würde Grün wählen!</h1>
+<p class="verstecke">Wähle die Art deines Haustieres und ggf. einen der alternativen Texte aus. Mach ein Foto von deinem Haustier, der ausgewählte Text wird drüber gelegt. 
+Speichere das Foto und teile es auf Facebook!
 </p>
 
 <div style="position:relative;height:180px;"  class="verstecke">
