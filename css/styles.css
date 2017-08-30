@@ -14,7 +14,6 @@
     -moz-osx-font-smoothing: grayscale;
     background: #0a321e;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-  
 }  
   h1 {
   font-family: 'Arvo Gruen';
@@ -24,7 +23,7 @@
 }
   .verstecke 
   { 
-  color: rgb(251,238,0);
+  color: rgb(255,238,0);
   } 
   .logo { 
   width: 30%;

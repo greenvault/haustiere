@@ -12,18 +12,102 @@
 </head>
 
 <body>
+  
+<?PHP
+   # =================================================================
+   #      PopSelect
+   # Populate a select drop-down list
+   # CurrentVal is the selected option, if any
+   # If Auto is set to 1, selection will auto-submit form to the location
+   #  URL designated in that option's value.
+   # AutoString may be used in auto mode if each option has the same preceeding value.
+   #  For instance: "thisfile.php?getvar=" may be used if the option values are all processed
+   #  by the same file.
+   # kv determines whether the selected option is based on key (0) or value (1)
+   # Size is the number of rows
+   # Javascript event handlers may be used if Auto is set on. Simply enter the code
+   #  for the JS field. Event should be single-quoted in function string.
+   # Complex example:
+   # PopSelect('Name', $Array, 'Selected, 'ClassName', 0, 1, '../directory/runthisfile.html?var=value',20,'onclick="(DoFunction());"')
+   # =================================================================
+function PopSelect($sName, $sArray, $CurrentVal, $sClass='', $kv=1, $Auto=0, $AutoString='', $Size=0, $JS="")
+{
+   $html='<select';
+   if(!empty($sClass)){$html .= ' Class="' . $sClass . '" ';}
+   $html .= ' name="' . $sName . '" id="' . $sName . '"';
+   if($Size)
+   {
+      $html .= ' size="' . $Size . '"';
+   }
+   if($Auto)
+   {
+      $html .= ' onchange="if(options[selectedIndex].value){location = options[selectedIndex].value}"';
+      if(!empty($JS))
+      {
+         $JSCode = strtolower($JS);
+         if(substr($JSCode,0,8) == "onchange")
+         {
+            $JS = substr($JS,10); // Remove "onchange" and starting quote
+            $html = substr($html,0,-1) . '; '; // Replace last quote with colin
+            $html .= $JS;
+         }
+         else
+         {
+            $html .= ' ' . $JS;
+         }
+      }
+   }
+   else
+   {
+      if(!empty($JS))
+      {
+         $JSCode = strtolower($JS);
+         $html .= ' ' . $JS;
+      }
+   }
+   $html .= '>' . "\n";
+   foreach($sArray as $key => $value)
+   {
+      if($kv==1){$SelectedVal = $value;}else{$SelectedVal = $key;}
+      $html .= '<option value="';
+      if(!empty($AutoString))
+      {
+         $html .= $AutoString . $key . '"';
+      }
+      else
+      {
+         $html .= $key . '"';
+      }
+      if($SelectedVal == $CurrentVal)
+      {
+         $html .= ' selected';
+      }
+      $html .= '>' . $value . '</option>' . "\n";
+   }
+   $html .= '</select>';
+   return $html;
+}
+?>
+
 <?php
 if(isset($_GET['t']) AND file_exists('themen/' . $_GET['t'])) 
   $thema = preg_replace('/[^a-zA-Z0-9]/','',$_GET['t']);
 else
   $thema = 'planetb';
 ?>
+<?php include("auswahl.php"); ?>
+
 <div id="container">
 <div align="center"><img class="logo" src="images/logo.svg"></div>
 <h1>Mein Haustier würde Grün wählen!</h1>
 <p class="verstecke">Wähle die Art deines Haustieres und ggf. einen der alternativen Texte aus. Mach ein Foto von deinem Haustier, der ausgewählte Text wird drüber gelegt. 
 Speichere das Foto und teile es auf Facebook!
 </p>
+
+<?php echo PopSelect('haustier',$haustier2,''); ?>
+<br /><br />
+<?php echo "Mein Haustier: $haustier" ?>
+<br /><br />
 
 <div style="position:relative;height:180px;"  class="verstecke">
 	<img src="musterbild.jpg" class="muster" style="height:180px"/>
