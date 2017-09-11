@@ -13,12 +13,13 @@
     -moz-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #0a321e;
+    background: url('../images/bg2-2015.jpg') no-repeat center center fixed;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }  
 
 #container {
   width:100%;
-  max-width:600px;
+  max-width:400px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -28,8 +29,18 @@ h1 {
   font-family: 'Arvo Gruen';
   text-transform: uppercase;
   text-align: center;
+  font-weight: normal;
   font-size: 1.4em;
 }
+
+h2  {
+  font-family: 'Arvo Gruen';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
 .verstecke 
   { 
   color: rgba(255,238,0,1);
@@ -101,4 +112,29 @@ h1 {
   width:60px;
   margin:10px;
 }
-
+.share-button {
+    height: 60px;
+    line-height: 60px;
+    width: 90%;
+    max-width: 300px;
+    border:1px solid #0D386F;
+    background-color:#5D7DAE;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    font-size:19px;
+    font-weight:bold;
+    border-top:1px solid #879DC2;
+    display:block;
+    margin-bottom: 50px;
+}
+.share-button:hover {
+    background-color: #4C658A;
+}
+.share-button.error {
+    background-color: #7e8695;
+    cursor: default;
+}
+.share-button.error:hover {
+    background-color: #7e8695;
+}

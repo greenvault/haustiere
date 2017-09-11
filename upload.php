@@ -5,13 +5,32 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta charset="utf-8"/>
-		<link href="css/fonts.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<title>Sharepic Mobile</title>
+		<meta property="og:url"         		content="https://haustier-thkuenstler.c9users.io/" />
+  		<meta property="og:type"          content="website" />
+  		<meta property="og:title"         content="Mein Haustier wählt grün!" />
+  		<meta property="og:description"   content="Dein Haustier weiß genau, wie der Hase läuft. Und deshalb würde es grün wählen!" />
+  		<meta property="og:image"         content="https://haustier-thkuenstler.c9users.io/uploads/' . $targetFileName . 'Overlay.jpg" />
+  		<meta property="fb:app_id"				content="1838721583107744"  />
+  		<link href="css/fonts.css" rel="stylesheet">
+		 <link href="css/styles.css" rel="stylesheet">
+		<title>Haustiere würden grün wählen</title>
 		
 	</head>
 	
 	<body>
+		<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10&appId=1838721583107744";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+ 	
+ 	  <div id=container>
+  	<div align="center"><a href="/" border="0"><img class="logo" src="images/logo.svg"></a></div>
+		<h1>Mein Haustier würde Grün wählen!</h1>
+		
 	<?php
 	
 	if(isset($_POST['t']) AND isset($_POST['h']) AND file_exists('haustiere/' . $_POST['h'] . '/' . $_POST['t'])) {
@@ -49,7 +68,7 @@
 	    list($overlaywidth, $overlayheight) = getimagesize("haustiere/$haustier/$thema/overlay.png");  
 	
 		// Erzeuge ein Overlay in der passenden Größe
-		$size = 0.8; // Anteil des Overlays an der Gesamtbreite, nur bezogen auf die Breite
+		$size = 0.9; // Anteil des Overlays an der Gesamtbreite, nur bezogen auf die Breite
 		$myoverlaywidth = round($width * $size);
 		$myoverlayheight = round( $myoverlaywidth / ($overlaywidth/$overlayheight));
 		$abstand = round($width / 10);
@@ -61,7 +80,7 @@
 	
 		$command2 = " -auto-orient $uploadedfile haustiere/$haustier/$thema/overlay.png  -geometry {$myoverlaywidth}x20000+{$abstand}+{$abstand_unten} -composite sonnenblume.png -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} -composite	 uploads/{$targetFileName}Overlay.jpg";
 		$command3 = " -geometry {$myoverlaywidth}x20000+{$abstand}+{$abstand_unten} haustiere/$haustier/$thema/overlay.png  $uploadedfile  uploads/{$targetFileName}Overlay.jpg";
-		$command4 = " -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} sonnenblume.png  uploads/{$targetFileName}Overlay.jpg  uploads/{$targetFileName}Overlay.jpg";
+		$command4 = " -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} sonnenblume.png uploads/{$targetFileName}Overlay.jpg  uploads/{$targetFileName}Overlay.jpg";
 	
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {		
 			echo exec('convert.exe ' . $command2);
@@ -73,7 +92,9 @@
 		//unlink($targetPath. $targetFileName.$targetFileExtension);
 	
 	
-		echo  '<a href="download.php?file='.$targetFileName . 'Overlay.jpg"><img src="uploads/' . $targetFileName . 'Overlay.jpg" style="border:1px solid black;width:100%;height:auto;max-height:100%;max-width:100%"/></a><h1>Tippe auf das Bild, um es herunterzuladen.<br/><a href="index.php?t='. $thema. '">Nochmal</a></h1>' ;
+		echo  '<a href="download.php?file='.$targetFileName . 'Overlay.jpg"><img src="uploads/' . $targetFileName . 'Overlay.jpg" style="border:1px solid black;width:100%;height:auto;max-height:100%;max-width:100%"/></a>';
+    echo '<hr />';
+    echo '<h2>Tippe auf das Bild, um es herunterzuladen.<br /><a href="index.php">Nochmal</a></h1>';
 	/*
 		$size = getimagesize( $targetPath . $targetFileName . '.jpg' );
 	
@@ -84,8 +105,14 @@
 		echo json_encode( $return );
 		*/
 	}
-	
 	?>
-	
+	<hr />
+	<div class="fb-share-button" data-href="https://haustier-thkuenstler.c9users.io/" data-layout="button" data-size="large" data-mobile-iframe="true">
+		<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhaustier-thkuenstler.c9users.io%2F&amp;src=sdkpreparse">Auf Facebook Teilen</a></div>
+	<div align="center"><img class="logo2" src="images/logo_quer.png"></div>
+	</div>
 	</body>
 </html>
+
+
+
