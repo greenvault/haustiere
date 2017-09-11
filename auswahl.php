@@ -1,3 +1,3 @@
 <?PHP
-   $haustier2 = array("Hund"=>"Hund","Katze"=>"Katze","Hamster"=>"Hamster");
+   $haustier2 = array("hund"=>"Hund","katze"=>"Katze","hamster"=>"Hamster");
 ?>

@@ -15,23 +15,37 @@
     background: #0a321e;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }  
-  h1 {
+
+#container {
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+h1 {
   font-family: 'Arvo Gruen';
   text-transform: uppercase;
   text-align: center;
   font-size: 1.4em;
 }
-  .verstecke 
+.verstecke 
   { 
-  color: rgb(255,238,0);
+  color: rgba(255,238,0,1);
   } 
-  .logo { 
-  width: 30%;
+   .logo { 
+  width: 90px;
+  }  
+  .logo2 { 
+  width: 200px;
+  padding-top:50px;
   }    
   .muster{
   	position: absolute;
   	top: 0;
-  	left: 0;
+  	left: 50%;
+     margin-left: -135px;
   }
 
   .fileUpload {
@@ -39,6 +53,7 @@
     overflow: hidden;
     margin: 10px;
 }
+
 .fileUpload input.upload {
     position: absolute;
     top: 0;
@@ -73,7 +88,7 @@
     border-radius: 4px;
 }
 
-.btn-success{
+.btn-success {
 	color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
@@ -82,4 +97,8 @@
     margin-left:0;
 }
 
+.haustier img {
+  width:60px;
+  margin:10px;
+}
 
