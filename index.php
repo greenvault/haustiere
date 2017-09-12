@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
 		<meta name="mobile-web-app-capable" content="yes">
-		<meta charset="utf-8"/>
-		<link href="css/fonts.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-		<link href="https://www.gruene.de/tmpl/gfx/icons/favicon.ico?v=bOv55x3EXn" rel="shortcut icon">
-		<title>Haustierwahlkampf</title>
+		<meta charset="utf-8" />
+		<meta property="og:url"			content="https://haustier-thkuenstler.c9users.io/" />
+  		<meta property="og:type"        content="website" />
+  		<meta property="og:title"       content="Haustiere würden grün wählen" />
+  		<meta property="og:description" content="Dein Haustier weiß genau, wie der Hase läuft. Und deshalb würde es grün wählen! Gib ihm eine Stimme." />
+  		<meta property="og:image"       content="https://haustier-thkuenstler.c9users.io/uploads/' . $targetFileName . 'Overlay.jpg" />
+  		<meta property="fb:app_id"	  	content="1838721583107744"  />
+		<link href="css/fonts.css" rel="stylesheet" />
+		<link href="css/styles.css" rel="stylesheet" />
+		<link href="https://www.gruene.de/tmpl/gfx/icons/favicon.ico?v=bOv55x3EXn" rel="shortcut icon" />
+		<title>Haustiere würden grün wählen</title>
 	</head>
 	
 	<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10&appId=1838721583107744";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	
 	<div id="container">
 		<div align="center"><a href="/" border="0"><img class="logo" src="images/logo.svg"></a></div>
@@ -71,7 +85,7 @@
 			<div id="warten" style="display:none">Dein Bild wird bearbeitet. Augenblick bitte...</div>
 		<?php	} ?>
 			
-		</div>
+		
 		
 		<script src="jquery.min.js"></script>
 		<script>
@@ -90,6 +104,10 @@
 			<p class="verstecke">Tut uns Leid, diese Anwendung steht nur für mobile Endgeräte zur Verfügung! Schauen Sie doch mal auf gruene.de vorbei…</p>
 			<a href="http://www.gruene.de" class="btn">www.gruene.de</a>
 		</div> -->
+			<hr />
+		<div class="fb-share-button" data-href="https://haustier-thkuenstler.c9users.io/" data-layout="button" data-size="large" data-mobile-iframe="true">
+		<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhaustier-thkuenstler.c9users.io%2F&amp;src=sdkpreparse">Auf Facebook Teilen</a></div>
+	</div>
 		<div align="center"><img class="logo2" src="images/logo_quer.png"></div>
 	</body>
 </html>
