@@ -29,7 +29,7 @@
 	<div id="container">
 		<div align="center"><a href="/" border="0"><img class="logo" src="images/logo.svg"></a></div>
 		<h1>Mein Haustier würde Grün wählen!</h1>
-	<p class="verstecke">Wähle die Art deines Haustieres. Du siehst als Vorschau einen Löwen mit Text. Wähle ggf. einen anderen Spruch unten aus. Mach ein Foto von deinem Haustier, der ausgewählte Text wird drüber gelegt. Speichere das Foto und teile es auf Facebook!</p>
+	<p class="verstecke">Wähle die Art deines Haustieres. Du siehst als Vorschau einen Löwen mit dem jeweiligen Text. Wähle ggf. einen anderen Spruch unten aus. Mach ein Foto von deinem Haustier, der ausgewählte Text wird drüber gelegt. Speichere das Foto und teile es auf Facebook!</p>
 
 <!-- Auswahl Haustier-->		
 		
@@ -47,13 +47,13 @@
 					echo '</div>';
 				} else { 
 					$haustier = $_GET['h'];
-					if(isset($_GET['t']) AND file_exists($haustier . '/' . $_GET['t'])) 
+					if(isset($_GET['t']) AND file_exists('haustiere/' . $haustier . '/' . $_GET['t'])) 
 						$thema = preg_replace('/[^a-zA-Z0-9]/','',$_GET['t']);
 					else
-						$thema = '1';
+						$thema = '1'; 
 			?>
 		</div>
-		
+
 		<div style="position:relative;height:180px;"  class="verstecke">
 				<img src="musterbild.jpg" class="muster" style="height:180px"/>
 				<img src="haustiere/<?=$haustier?>/<?=$thema?>/overlay.png" class="muster" style="margin-top:80px;margin-left: -125px;height:80px"/>
@@ -83,8 +83,7 @@
 		</form>
 				
 			<div id="warten" style="display:none">Dein Bild wird bearbeitet. Augenblick bitte...</div>
-		<?php	} ?>
-			
+	<?php 	} ?>
 		
 		
 		<script src="jquery.min.js"></script>
