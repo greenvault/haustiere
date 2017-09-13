@@ -58,14 +58,16 @@
 		$myoverlayheight = round( $myoverlaywidth / ($overlaywidth/$overlayheight));
 		$abstand = round($width / 10);
 		$abstand_unten = round($height/2 - $myoverlayheight/2);
-		$logow = round($width/15);
+		$logow = round($width/3);
+		$logoh = $logow * 806 / 3000;
 		$abstand_logo = round(($width - $logow ) / 2 );
-		$abstand_logo_unten = $height - (1.5 * $logow);
-		//$command1 =  " -resize  $mywidth themen/$thema/overlay_muster.png themen/$thema/overlay.png";
+		$abstand_logo_unten = $height - $logoh - 20;
 	
+		//$command1 =  " -resize  $mywidth themen/$thema/overlay_muster.png themen/$thema/overlay.png";
+
 		$command2 = " -auto-orient $uploadedfile haustiere/$haustier/$thema/overlay.png  -geometry {$myoverlaywidth}x20000+{$abstand}+{$abstand_unten} -composite sonnenblume.png -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} -composite	uploads/{$targetFileName}Overlay.jpg";
 		$command3 = " -geometry {$myoverlaywidth}x20000+{$abstand}+{$abstand_unten} haustiere/$haustier/$thema/overlay.png  $uploadedfile  uploads/{$targetFileName}Overlay.jpg";
-		$command4 = " -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} sonnenblume.png uploads/{$targetFileName}Overlay.jpg  uploads/{$targetFileName}Overlay.jpg";
+		$command4 = " -geometry {$logow}x20000+{$abstand_logo}+{$abstand_logo_unten} images/logo_quer.png uploads/{$targetFileName}Overlay.jpg  uploads/{$targetFileName}Overlay.jpg";
 	
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {		
 			echo exec('convert.exe ' . $command2);
@@ -79,7 +81,7 @@
 	
 		echo  '<a href="download.php?file='.$targetFileName . 'Overlay.jpg"><img src="uploads/' . $targetFileName . 'Overlay.jpg" style="border:1px solid black;width:100%;height:auto;max-height:100%;max-width:100%"/></a>';
     echo '<hr />';
-    echo '<h2>Tippe auf das Bild, um es herunterzuladen und teile es auf Facebook!<br /><a href="index.php">Nochmal</a></h1>';
+    echo '<h2>Tippe auf das Bild, um es herunterzuladen und teile es auf Facebook!<br /><br /><a href="index.php">Nochmal</a></h1>';
 	/*
 		$size = getimagesize( $targetPath . $targetFileName . '.jpg' );
 	
